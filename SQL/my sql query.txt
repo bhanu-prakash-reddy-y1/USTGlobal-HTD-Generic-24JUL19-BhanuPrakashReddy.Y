@@ -1,0 +1,1616 @@
+1.query for showing database
+	a.show database;
+2.query for creating database
+	a.mysql> create database ustglobal  // creating database
+	syntax : create database databasename;
+3.query for changeing to database
+	a.mysql> use ustglobal;
+	syntax : use databasename; 
+4.query to create tables
+	a.mysql> create table student(id int,name varchar(120),emailid varchar(150));
+	syntax : create table tablename(coloumn name  datatype);
+5.query to show tables
+	a.mysql> show tables;//to see the tables present in the database
++------------------------+
+| Tables_in_ustglobal    |
++------------------------+
+| student                |
++------------------------+
+6.query to check table
+	a.mysql> desc student;
+	syntax : desc tablename;
+7.query to drop the table
+	a.mysql> drop table student;
+	syntax : drop table tablename
+8.query to drop the database
+	a.mysql> drop database ustglobal;
+	syntax : drop database databasename
+9.query to add column
+	a.mysql> alter table student add column mobileNo int;
+	syntax : alter table table_name add column colum-defnation;
+	one more 
+	7a.query to add column
+	a.mysql> alter table student add  mobileNo int;
+	syntax : alter table table_name add colum-defnation;
+10.query to drop column
+	a.mysql> alter table student drop address;
+	syntax : alter table table_name drop column-name;
+11.query to rename column
+	a.mysql> alter table student change name studentName varchar(120);
+	syntax : alter table table_name change oldcolname newcolname defnation;
+12.query to raname table
+	a.mysql> rename table student to student_info;
+	syntax : rename table table-name to newtable-name;
+12.query to raname database
+***note*** we can not change the database name in my sql 5.7;
+================================
+DML(DATA MANIPULATION LANGUAGE) |
+================================
+1.QUERY TO INSERT  DATA INTO TABLE
+	A.mysql> insert into student (id,StudentName,emailid,mobileNo) values(101,'bhanu prakash reddy','ybnuprksrdy@gmail.com',7675985);
+	syntax: insert into table_name (col-name,col-names,-,-,-,.-,-,-,) values (value1,value2,-,-,-,-,-,-,-);
+	(and)
+	syntax: insert into table_name values(give vaues in order)	
+2.QUERY TO INSERT  multiple DATA INTO TABLE
+	a.mysql> insert into student values (104,'revanth','revanth@gmailcom',34567890),(103,'sucharitha','sucha@gmail.com',987654);
+=========
+08-08-2019     |
+=========
+DML
+3.query to update data in table
+	a.mysql> update student set mobileNo=12000;
+	suntax:udate table-name set coloumn-name = value;
+
+4.query to delete data from table
+	a.mysql> delete from student;
+	suntax:delete from table-name;
+5.3.query to delete all record in table
+	a.truncate table student;
+	syntax:truncate table table-name;
+========================================
+DATA QUERY LANGUAGE (DQL)			    |
+========================================
+1.QUERY TO RETRIVE DATA BY USING WHERE CLAUSE
+	A.mysql> select id,studentName from student where studentName ='bhanu prakash reddy';		
+2.query to up date single record
+	a.mysql> update student set id =105 where id=101;
+	syntax:update table-name set column-name = values where column-name = value;
+3. query to delete perticular record from table
+	a.mysql> delete from student where id=105;
+4.creating a table by using constraints
+	a.mysql> create table bhanu(id int,name varchar(120) not null,email varchar(120),primary key(id));
+===========
+8-12-2019 |
+===========
+				   ALIASING
+			        *********************
+5.query for aliasing
+	a.select name, bloodgroup as bg from employe_info;
+	synatx;select column name as alias name from table name;
+6.write a queryb to display employe name ,salary ,designation and annual salary fom employee table
+	a.select name,salary,designation,salary*12 from employe_info;
+7.write a query to display employe name ,salary ,designation,annual salary fom employee table using aliasing with(as)
+	a. select name,salary,designation,salary*12 as package from employe_info;
+8.write a query to give alias name for all the coloumn present in the all  the column present in empolye_info
+	a.select id i,name nm,emailId eid,designation dgn,mobileNo mblno,age ag,dob dateofbirth,doj dj,salary sal,deptId dptid,bloodGroup gb from employe_info;
+				DISTINCT
+			***************************
+
+1.WRite a qiery to display the unique dept no from employw_info table.
+	a.mysql> select distinct deptId from employe_info;
+	syntax: select distinct column-name from table_name;
+2.write a query to display unique value of designation as well as dept id;
+	a.mysql> select distinct deptId,designation from employe_info;
+	syntax : select distinct column name,column -name form table-name;
+3.write a  query to diaplay deptid ,designation,age from employe_info table.
+	a.mysql> select distinct deptId,designation,age from employe_info;
+4.wirte a query to dispaly name,salary and salary increment by 5000;
+	a.mysql> select name,salary,salary+5000 from employe_info;
+5.wirte a query to dispaly name,salary and salary decrement by 5000; 
+	a.mysql> select name,salary,salary-5000 from employe_info;
+6. write a query to display name,salary,annual salary
+	a.mysql> select name,salary,salary*12 from employe_info;
+7.write aquery to display name salary,salary for day
+	a.mysql> select name,salary,salary/30 from employe_info;
+8.write a query to  diaplay all the records excluding dept no 10
+	a.mysql>  select * from employe_info where deptId !=10; 
+			or
+	a.mysql>  select * from employe_info where deptId <>10;
+9.write a query to display name ,desigantion,mobile number,age whose salary is greater than 25000;
+	a.mysql> select name,designation,mobileNo,age from employe_info where salary >25000;    
+10.write a query to display name ,desigantion,mobile number,age whose salary is greater than 25000;
+	a.mysql> select name,designation,mobileNo,age from employe_info where salary <25000;
+11.write a query to dispaly salary lessthan =15000
+	a.mysql> select* from employe_info where salary <=15000;
+12.write a query to dispaly salary  greaterthan = 20000;
+	a.mysql> select* from employe_info where salary >=20000;
+13.write a query to dispaly all the records who is working in deptId 20 only if salary is greater than 10000
+	a.mysql> select * from employe_info where deptId=20 and salary>10000;
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name       | emailId               | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 102 | sucharitha | shucharitha@gmail.com | HR          |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 113 | anil       | anil@gmail.com        | cleark      |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 116 | akhil      | akhil@gmail.com       | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+*************************************
+14.waq to dispaly all the records in employe_info who is working as sales man and dob is greaterthan 1994
+	a.mysql> select * from employe_info where designation='salesman' and dob>'1999-01-01' and dob<'1999-12-30';
++-----+--------+------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name   | emailId          | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+--------+------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 104 | sravya | sravya@gmail.com | salesMan    |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
++-----+--------+------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+******************************************
+14 write a query to dispaly all the record of employe_info whose salary >= 10000 as well as job desigantion is analyst
+	a.mysql> select * from employe_info where salary >= 10000 and designation ='analyst';
++-----+-----------+---------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name      | emailId             | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+-----------+---------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 105 | bhavana   | bhavana@gmail.com   | analyst     |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 107 | akhil     | akhil@gmail.com     | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+| 111 | yashwanth | yashwanth@gmail.com | analyst     |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 116 | akhil     | akhil@gmail.com     | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+-----------+---------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+*************************************************************************
+15.WAQ to display all the who is working in dept no 20 or dept no 60
+	a.mysql> select * from employe_info where deptId = 20 or deptId = 60;
+
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name       | emailId               | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 102 | sucharitha | shucharitha@gmail.com | HR          |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 113 | anil       | anil@gmail.com        | cleark      |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 116 | akhil      | akhil@gmail.com       | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------|
+*********************************************************************************
+
+16.WAQ to display name salary emailid who is working as a tester or age is greater then 20
+	a.mysql> select name,emailId,salary from employe_info where age>20 or designation = 'tester';
+
++---------------+-----------------------+----------+
+| name          | emailId               | salary   |
++---------------+-----------------------+----------+
+| bhanu prakash | ybnuprksrdy@gmail.com | 25000.34 |
+| sucharitha    | shucharitha@gmail.com | 24000.34 |
+| revanth       | revanth@gmail.com     | 24400.34 |
+| bhavana       | bhavana@gmail.com     | 25500.34 |
+| rambupal      | rambupal@gmail.com    | 26500.34 |
+| akhil         | akhil@gmail.com       | 25500.34 |
+| dheeraj       | dheeraj@gmail.com     | 26500.34 |
+| murali        | murali@gmail.com      | 24500.34 |
+| sreekanth     | sreekanth@gmail.com   | 26500.34 |
+| yashwanth     | yashwanth@gmail.com   | 26500.34 |
+| karthick      | karthick@gmail.com    | 36500.34 |
+| anil          | anil@gmail.com        | 46500.34 |
+| sreedhar      | sreedhar@gmail.com    | 54500.34 |
+| giri          | giri@gmail.com        | 26500.34 |
+| akhil         | akhil@gmail.com       | 25500.34 |
+| sreedhar      | sreedhar@gmail.com    | 66500.34 |
++---------------+-----------------------+----------+
+****************************************************************************************
+
+17.WAQ to dispaly the name of all employe names who is working as a hr in dept no 30 or who is working as clerk where salary is greaterthan 1000
+	
+	a.mysql> select name from employe_info where (designation = 'HR' and deptId = 30)or(designation= 'cleark' and salary>10000)
++---------+
+| name    |
++---------+
+| revanth |
+| anil    |
++---------+
+18.WAQTD all the records in employe_info exluding deptid 20 and 30
+	a.mysql> select * from employe_info where not (deptId = 20 or deptId=30);
+*****************************************************************************************************
+
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+| 105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 107 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+| 108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+| 117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+******************************************************************************************************
+19.WAQTD all the employe deatils excluding salesman who all or working in dept no 40;
+	a.mysql> select * from employe_info where not (designation ='salesman' and deptid=40);
+mysql> select * from employe_info where not (designation ='salesman' and deptid=40);
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+| 105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 107 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+| 108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+| 110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+| 113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+| 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+| 116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
+| 117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+*************************************************************************************************
+20.WAQTD all the employe details who is worikng as a salesman for deptId 20 or 30;
+	a.mysql> select * from employe_info where designation ='salesman' and (deptid=20 or deptId =30 );
++-----+----------+--------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name     | emailId            | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+----------+--------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 109 | murali   | murali@gmail.com   | salesMan    |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+| 112 | karthick | karthick@gmail.com | salesman    |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
++-----+----------+--------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+****************************************************************************************
+21.WAQTD all the employe who is working in deptId 20 only if there salary is greaterthan 10000 and less than 25000 including 10000 and 250000
+	a.mysql> select * from employe_info where deptId=20 and salary>=10000 and salary<=25000;
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name       | emailId               | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 102 | sucharitha | shucharitha@gmail.com | HR          |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+***************************************************************************************************
+22.WAQTD all the records who is working as a softwaredeveloper and dob is 1994
+	a.mysql> select * from employe_info where designation = 'software developer' and dob >='1994-01-01' and dob <='1998-01-01';
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name      | emailId             | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 110 | sreekanth | sreekanth@gmail.com | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 115 | giri      | giri@gmail.com      | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+*******************************************************************************************************************
+23.WAQTD the employe who is working in deptno 10 or 20 or 30 
+	a.mysql> select * from employe_info where deptId=10 or deptId=20 or deptId= 30;
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+| 105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+| 111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+| 113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+| 116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+***************************************************************************************************************************************
+24.WAQTD the employe who is working in dept no 10 20 30 usind IN operartor;
+	a.mysql> select * from employe_info where deptId IN(10,20,30);
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+| 105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+| 111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+| 113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+| 116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+***********************************************************************************************************************************************
+25.WAQTD all the employe details whose job designation is hr ,tester,analyt 
+	a.mysql> select * from employe_info where designation IN('HR','tester','analyst');
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name       | emailId               | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 102 | sucharitha | shucharitha@gmail.com | HR          |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 105 | bhavana    | bhavana@gmail.com     | analyst     |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 106 | rambupal   | rambupal@gmail.com    | tester      |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 107 | akhil      | akhil@gmail.com       | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+| 108 | dheeraj    | dheeraj@gmail.com     | tester      |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 111 | yashwanth  | yashwanth@gmail.com   | analyst     |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 116 | akhil      | akhil@gmail.com       | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+********************************************************************************************************************************************
+26.WAQTD ALL THE EMPLOye details who are working as a clerk in dept 20,30,40,60,70
+	a.mysql> select * from employe_info where designation='cleark'and deptId IN(20,30,40,60,70);
++-----+---------+-------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name    | emailId           | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------+-------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 103 | revanth | revanth@gmail.com | cleark      |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+| 113 | anil    | anil@gmail.com    | cleark      |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
++-----+---------+-------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+*********************************************************************************************************************************************
+27.WAQTD all the employe detils   who are working as a software developer not in deptno 20,30,40,50,60,70	
+	a.mysql> select * from employe_info where designation='software developer'and deptId not IN(20,30,40,60,70);
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+						
+******************************************************************************************************************
+28.WAQTD all the employe detils who are working in dept 20 40 60 excliding the saleman or analyst
+	a.mysql> select * from employe_info where designation not in ('analyst','salesman')and deptId IN(20,40,60);
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name       | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 102 | sucharitha | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 110 | sreekanth  | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 113 | anil       | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 114 | sreedhar   | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+| 117 | sreedhar   | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+**********************************************************************************************************************
+29.WAQTD all the detail of employe whose salary is in the range of 20000 to 50000
+	a.mysql> select * from employe_info where salary between 25000 and 50000;
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 107 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+| 108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+| 113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+| 116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+****************************************************************************************************************************************
+30.WAQTD all the details of employes who have hired in 2017
+	a.mysql> select * from employe_info where doj between '2017-01-01' and '2017-12-31';
++-----+--------+------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name   | emailId          | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+--------+------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 109 | murali | murali@gmail.com | salesMan    |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
++-----+--------+------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+*******************************************************************************************************************************************
+31.WAQTD ALL THE resorsds of the employe excuding who is hired in 2019
+	a.mysql> select * from employe_info where doj not between '2019-01-01' and '2019-12-31';
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name       | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 102 | sucharitha | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 103 | revanth    | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+| 104 | sravya     | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+| 106 | rambupal   | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 108 | dheeraj    | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 109 | murali     | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+| 111 | yashwanth  | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 112 | karthick   | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+| 113 | anil       | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 114 | sreedhar   | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+| 115 | giri       | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+************************************************************************************************************************************************
+32.WAQTD EMPLOYE NAME salary and deptId of ALL the employees who is wrking on dept id 30 and 40
+ excuding employe whose salary greaterthan or equal to 15000 and lessthan equall 50000 
+	a.mysql> select name,salary,deptId from employe_info where deptId in(30,40) and salary not between 15000 and 50000;
++----------+----------+--------+
+| name     | salary   | deptId |
++----------+----------+--------+
+| sreedhar | 54500.34 |     40 |
+| sreedhar | 66500.34 |     40 |
++----------+----------+--------+
+************************************************************************************************************************************************
+33.WAQTD employe name and his annual salary if his designation is null
+	a.mysql> select name,salary*12 sal from employe_info where designation is null;
++-------+--------+
+| name  | sal    |
++-------+--------+
+| bhanu | 148140 |
++-------+--------+
+********************************************************************************************************************************
+34.WAQTD employee name and hus salary if designation is not null
+	a.mysql> select name,salary*12 sal from employe_info where designation is not null;
++---------------+--------------------+
+| name          | sal                |
++---------------+--------------------+
+| bhanu prakash |          300004.08 |
+| sucharitha    |          288004.08 |
+| revanth       |          292804.08 |
+| sravya        |          294004.08 |
+| bhavana       |          306004.08 |
+| rambupal      |          318004.08 |
+| akhil         |          306004.08 |
+| dheeraj       |          318004.08 |
+| murali        |          294004.08 |
+| sreekanth     |          318004.08 |
+| yashwanth     |          318004.08 |
+| karthick      | 438004.07999999996 |
+| anil          |          558004.08 |
+| sreedhar      |          654004.08 |
+| giri          |          318004.08 |
+| akhil         |          306004.08 |
+| sreedhar      |          798004.08 |
++---------------+--------------------+
+*************************************************************************************************************************
+35.WAQTD ALL THE DETAILS of employe whis name start with s
+	a.mysql> select * from employe_info where name like 's%';
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name       | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 102 | sucharitha | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 104 | sravya     | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+| 110 | sreekanth  | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 114 | sreedhar   | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+| 117 | sreedhar   | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+*******************************************************************************************************************************************
+36.WAQTD all the detail os the employe whose name conatins only five charactors
+	a.mysql> select * from employe_info where name like '_____';
++--------+-------+-----------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id     | name  | emailId         | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++--------+-------+-----------------+-------------+----------+------+------------+------------+----------+--------+------------+
+|    107 | akhil | akhil@gmail.com | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+|    116 | akhil | akhil@gmail.com | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
+| 201116 | bhanu | bhanu@gmail.com | NULL        |     NULL | NULL | 1998-08-15 | 2019-09-21 |    12345 |   NULL | NULL       |
++--------+-------+-----------------+-------------+----------+------+------------+------------+----------+--------+------------+
+***********************************************************************************************************************************
+37.WAQTD NAME salary dob doj age salary whos name starts with s and with s
+	a.mysql> mysql> select name,salary,doj,dob,age from employe_info where name like 's%s';	
+Empty set (0.00 sec)
+**********************************************************************************************************
+38.WAQTD all the record of the employe whose second charactor is p
+	a.mysql> select * from employe_info where name like '_k%';
++-----+-------+-----------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name  | emailId         | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+-------+-----------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 107 | akhil | akhil@gmail.com | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+| 116 | akhil | akhil@gmail.com | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+-------+-----------------+-------------+----------+------+------------+------------+----------+--------+------------+
+2 rows in set (0.00 sec)
+********************************************************************************************
+39.WAQTD all the information of employe where designation hav atleast two 'e';
+	a.mysql> select * from employe_info where name like '%e%e%';
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name      | emailId             | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 108 | dheeraj   | dheeraj@gmail.com   | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 110 | sreekanth | sreekanth@gmail.com | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 114 | sreedhar  | sreedhar@gmail.com  |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+| 117 | sreedhar  | sreedhar@gmail.com  | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+4 rows in set (0.00 sec)
+*************************************************************************************************************
+40.WAQT select all the strings of length 5 that name starts with s and last but one charactor is l
+	a.mysql> select * from employe_info where name like 's___l_';
+Empty set (0.00 sec)	
+*******************************************************************************************8
+41.WAQTD ALL THE details of employe if the name of employe starts with r charactor or start with z charactor
+	a.mysql> mysql> select * from employe_info where name like 'r%' or name like 'z%';
++-----+----------+--------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name     | emailId            | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+----------+--------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 103 | revanth  | revanth@gmail.com  | cleark      |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+| 106 | rambupal | rambupal@gmail.com | tester      |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
++-----+----------+--------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+2 rows in set, 1 warning (0.05 sec)
+*******************************************************************************************************
+42.WAQTD all the record of employe in the name third charactor should be 'c' and sixth chractor sould be'i'
+	a.mysql> select * from employe_info where name like '__c__i%';
+Empty set (0.00 sec)
+*********************************************************************************************************
+43.WAQTD all the records of the excluding whose name is starts with a 
+	a.mysql> select * from employe_info where name not like 'a%';
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id     | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+|    101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+|    102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+|    103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+|    104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+|    105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+|    106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+|    108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+|    109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+|    110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+|    111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+|    112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+|    114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+|    115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+|    117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
+| 201116 | bhanu         | bhanu@gmail.com       | NULL               |     NULL | NULL | 1998-08-15 | 2019-09-21 |    12345 |   NULL | NULL       |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+44.WAQTD the avg sal of employe_info
+	a.mysql> select avg(salary) from employe_info;
++--------------------+
+| avg(salary)        |
++--------------------+
+| 30430.598888888882 |
++--------------------+
+1 row in set (0.11 sec)
+******************************************************************
+45.WAQTD min ,max,sum,count of all the salary column
+a.mysql> select max(salary) max from employe_info;
++----------+
+| max      |
++----------+
+| 66500.34 |
++----------+
+1 row in set (0.00 sec)
+
+a.mysql> select min(salary) min from employe_info;
++-------+
+| min   |
++-------+
+| 12345 |
++-------+
+1 row in set (0.00 sec)
+
+a.mysql> select sum(salary) sum from employe_info;
++-------------------+
+| sum               |
++-------------------+
+| 547750.7799999999 |
++-------------------+
+1 row in set (0.03 sec)
+a.
+mysql> select count(salary) count from employe_info;
++-------+
+| count |
++-------+
+|    18 |
++-------+
+1 row in set (0.00 sec)
+46.WAQTD all the aggrigate functions
+a.mysql> select count(salary) count,max(salary) maximum,min(salary) minimum,avg(salary) average,sum(salary) sum from employe_info;
++-------+----------+---------+--------------------+-------------------+
+| count | maximum  | minimum | average            | sum               |
++-------+----------+---------+--------------------+-------------------+
+|    18 | 66500.34 |   12345 | 30430.598888888882 | 547750.7799999999 |
++-------+----------+---------+--------------------+-------------------+
+1 row in set (0.00 sec)
+*************************************************************************************************************************************
+                                        ********************assignment***************************
+1.WAQTD all the employe working in deptno 20
+	a.mysql> select * from employe_info where deptId = 20;
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name       | emailId               | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 102 | sucharitha | shucharitha@gmail.com | HR          |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 113 | anil       | anil@gmail.com        | cleark      |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 116 | akhil      | akhil@gmail.com       | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+3 rows in set (0.02 sec)
+**************************************************************************************************************
+2.WAQTD all the employes earning more than RS 2500
+	a.mysql> select * from employe_info where salary > 2500;
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id     | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+|    101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+|    102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+|    103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+|    104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+|    105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+|    106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+|    107 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+|    108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+|    109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+|    110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+|    111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+|    112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+|    113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+|    114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+|    115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+|    116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
+|    117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
+| 201116 | bhanu         | bhanu@gmail.com       | NULL               |     NULL | NULL | 1998-08-15 | 2019-09-21 |    12345 |   NULL | NULL       |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+18 rows in set (0.05 sec)
+******************************************************************************************************************************************
+3.WAQTD All the employes whose job type is software devoloper
+	a.mysql> select * from employe_info where designation = 'software developer';
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+| 117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+4 rows in set (0.03 sec)
+********************************************************************************************************************************************
+4.WAQTD the employes woriking in deptId 10,20&40
+	a.mysql> select * from employe_info where deptId in(10,20,40);
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+| 105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+| 116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
+| 117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+12 rows in set (0.00 sec)
+***********************************************************************************************************************************************
+5.WAQTD all the employees whose name start with s
+	a.mysql> select * from employe_info where name like 's%';
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name       | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 102 | sucharitha | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 104 | sravya     | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+| 110 | sreekanth  | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 114 | sreedhar   | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+| 117 | sreedhar   | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+5 rows in set (0.00 sec)
+************************************************************************************************************************************************
+6.WAQTD all the employes whose fistname having letter 'l' as a 2nd charactor
+	a.mysql> select * from employe_info where name like '_l%';
+Empty set (0.00 sec)
+**************************************************************************************************************************************************
+7.WAQTD all the employes whose firstname is having atleast 2 'a' charactors
+	a.mysql> select * from employe_info where name like '%a%a%';
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+| 105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+6 rows in set (0.00 sec)
+**************************************************************************************************************************************************
+8.WAQTD ALL THE EMPLOYES whose lastname is having letter 'E' AS second last charactor
+	a.mysql> select * from employe_info where name like '%e_';
+Empty set (0.00 sec)
+***************************************************************************************************************************************************
+9.WAQTD All the employes whose name is having exactly five charactors
+	a.mysql> select * from employe_info where name like '_____';
++--------+-------+-----------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id     | name  | emailId         | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++--------+-------+-----------------+-------------+----------+------+------------+------------+----------+--------+------------+
+|    107 | akhil | akhil@gmail.com | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+|    116 | akhil | akhil@gmail.com | analyst     |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
+| 201116 | bhanu | bhanu@gmail.com | NULL        |     NULL | NULL | 1998-08-15 | 2019-09-21 |    12345 |   NULL | NULL       |
++--------+-------+-----------------+-------------+----------+------+------------+------------+----------+--------+------------+
+3 rows in set (0.00 sec)
+*******************************************************************************************************************************************
+10.WAQTD all the employes wohse salary is b/w 20000 and 30000
+	a.mysql> select * from employe_info where salary between 20000 and 30000;
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+| 104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+| 105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 107 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+| 108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+| 110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+| 116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+13 rows in set (0.00 sec)
+************************************************assignment complited************************************************************************** 
+16-08-2018 **class**
+**********************************************************************************************************************************************
+1.WAQTD no of employes had date of joining after 2016
+	a.mysql> select count(doj) from employe_info where doj >'2016-12-31';
++------------+
+| count(doj) |
++------------+
+|         15 |
++------------+
+1 row in set (0.11 sec)
+*********************************************************************************************************************************
+2.WAQTD avg salary and the highest of dept 20,30 ,40 and 60
+	a.
+mysql> select avg(salary),max(salary) from employe_info where deptId in(20,30,40,60);
++--------------------+-------------+
+| avg(salary)        | max(salary) |
++--------------------+-------------+
+| 34536.703636363636 |    66500.34 |
++--------------------+-------------+
+1 row in set (0.05 sec)
+*************************************************************************************************************************************
+3.WAQTD date of first and last hired employes
+	a.mysql> select min(doj) firstDate,max(doj) lastDate from employe_info;
++------------+------------+
+| firstDate  | lastDate   |
++------------+------------+
+| 2013-11-23 | 2019-11-23 |
++------------+------------+
+1 row in set (0.02 sec)
+**************************************************************************
+4.WAQTD  upperCase lowercase,initcap
+	a.mysql> select upper(name) from employe_info;
++---------------+
+| upper(name)   |
++---------------+
+| BHANU PRAKASH |
+| SUCHARITHA    |
+| REVANTH       |
+| SRAVYA        |
+| BHAVANA       |
+| RAMBUPAL      |
+| AKHIL         |
+| DHEERAJ       |
+| MURALI        |
+| SREEKANTH     |
+| YASHWANTH     |
+| KARTHICK      |
+| ANIL          |
+| SREEDHAR      |
+| GIRI          |
+| AKHIL         |
+| SREEDHAR      |
+| BHANU         |
++---------------+
+18 rows in set (0.11 sec)
+
+mysql> select lower(name) from employe_info;
++---------------+
+| lower(name)   |
++---------------+
+| bhanu prakash |
+| sucharitha    |
+| revanth       |
+| sravya        |
+| bhavana       |
+| rambupal      |
+| akhil         |
+| dheeraj       |
+| murali        |
+| sreekanth     |
+| yashwanth     |
+| karthick      |
+| anil          |
+| sreedhar      |
+| giri          |
+| akhil         |
+| sreedhar      |
+| bhanu         |
++---------------+
+18 rows in set (0.00 sec)
+
+mysql> select initcap(name) from employe_info;
+ERROR 1305 (42000): FUNCTION ustglobal.initcap does not exist
+************************************************************************************************************
+5.WAQTD length of the name 
+	a.mysql> select length(name) from employe_info;
++--------------+
+| length(name) |
++--------------+
+|           13 |
+|           10 |
+|            7 |
+|            6 |
+|            7 |
+|            8 |
+|            5 |
+|            7 |
+|            6 |
+|            9 |
+|            9 |
+|            8 |
+|            4 |
+|            8 |
+|            4 |
+|            5 |
+|            8 |
+|            5 |
++--------------+
+18 rows in set (0.05 sec)
+******************************************************************************************************
+6.WAQTD  to murge name and salary 
+	a.mysql> select concat(name,salary) from employe_info;
++-----------------------+
+| concat(name,salary)   |
++-----------------------+
+| bhanu prakash25000.34 |
+| sucharitha24000.34    |
+| revanth24400.34       |
+| sravya24500.34        |
+| bhavana25500.34       |
+| rambupal26500.34      |
+| akhil25500.34         |
+| dheeraj26500.34       |
+| murali24500.34        |
+| sreekanth26500.34     |
+| yashwanth26500.34     |
+| karthick36500.34      |
+| anil46500.34          |
+| sreedhar54500.34      |
+| giri26500.34          |
+| akhil25500.34         |
+| sreedhar66500.34      |
+| bhanu12345            |
++-----------------------+
+18 rows in set (0.05 sec)
+**************************************************************************************************************************
+7.WAQTD REVERSE
+	a.mysql> select reverse(name) from employe_info;
++---------------+
+| reverse(name) |
++---------------+
+| hsakarp unahb |
+| ahtirahcus    |
+| htnaver       |
+| ayvars        |
+| anavahb       |
+| lapubmar      |
+| lihka         |
+| jareehd       |
+| ilarum        |
+| htnakeers     |
+| htnawhsay     |
+| kcihtrak      |
+| lina          |
+| rahdeers      |
+| irig          |
+| lihka         |
+| rahdeers      |
+| unahb         |
++---------------+
+18 rows in set (0.00 sec)
+****************************************************************************************************************************************
+8.WAQTD name of all employes only three charactors
+	a.
+mysql> select substr(name,1,3) name from employe_info;
++------------------+
+| name             |
++------------------+
+| bha              |
+| suc              |
+| rev              |
+| sra              |
+| bha              |
+| ram              |
+| akh              |
+| dhe              |
+| mur              |
+| sre              |
+| yas              |
+| kar              |
+| ani              |
+| sre              |
+| gir              |
+| akh              |
+| sre              |
+| bha              |
++------------------+
+18 rows in set (0.01 sec)
+*************************************************************************************************
+9.WAQTD all the employes whose name begins with consonent
+	a.mysql> select * from employe_info where substr(name,1,1) not in('a','e','i','o','u');
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id     | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+|    101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+|    102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+|    103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+|    104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+|    105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+|    106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+|    108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+|    109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+|    110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+|    111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+|    112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+|    114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+|    115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+|    117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
+| 201116 | bhanu         | bhanu@gmail.com       | NULL               |     NULL | NULL | 1998-08-15 | 2019-09-21 |    12345 |   NULL | NULL       |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+15 rows in set (0.00 sec)
+*******************************************************************************************************************
+10.WAQ to search the positon if a in the name column 
+	a.mysql> select instr(name,'a') from employe_info;
++-----------------+
+| instr(name,'a') |
++-----------------+
+|               3 |
+|               5 |
+|               4 |
+|               3 |
+|               3 |
+|               2 |
+|               1 |
+|               6 |
+|               4 |
+|               6 |
+|               2 |
+|               2 |
+|               1 |
+|               7 |
+|               0 |
+|               1 |
+|               7 |
+|               3 |
++-----------------+
+18 rows in set (0.05 sec)
+************************************************************************************************************************************************
+11.WAQ to replace a with z in name
+	A.mysql> select replace(name,'a','z') from employe_info;
++-----------------------+
+| replace(name,'a','z') |
++-----------------------+
+| bhznu przkzsh         |
+| suchzrithz            |
+| revznth               |
+| srzvyz                |
+| bhzvznz               |
+| rzmbupzl              |
+| zkhil                 |
+| dheerzj               |
+| murzli                |
+| sreekznth             |
+| yzshwznth             |
+| kzrthick              |
+| znil                  |
+| sreedhzr              |
+| giri                  |
+| zkhil                 |
+| sreedhzr              |
+| bhznu                 |
++-----------------------+
+18 rows in set (0.00 sec)
+
+*******************************************************************************************************************************************
+12.WAQTD no of employe  whos is working in deptId 20 ,salary greaterthan 15000;
+	a.mysql> select count(*) from employe_info where deptId =20 and salary >15000;'
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+****************************************************************************************************************************************
+				****************group by (clause)***********************
+****************************************************************************************************************************************
+13.WAQ to display max sal in each dept
+	a.mysql> select max(salary) from employe_info group by deptId;
++-------------+
+| max(salary) |
++-------------+
+|       12345 |
+|    26500.34 |
+|    46500.34 |
+|    25500.34 |
+|    36500.34 |
+|    66500.34 |
++-------------+
+6 rows in set (0.00 sec)
+***********************************************
+mysql> select * from employe_info group by deptId;
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id     | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 201116 | bhanu         | bhanu@gmail.com       | NULL               |     NULL | NULL | 1998-08-15 | 2019-09-21 |    12345 |   NULL | NULL       |
+|    101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+|    102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+|    107 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+|    103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+|    104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+6 rows in set (0.02 sec)
+**********************************************
+14.WAQTD no of software developers working in each dept
+	a.mysql> select count(designation) from employe_info where designation='software developer'  group by deptId;
++--------------------+
+| count(designation) |
++--------------------+
+|                  1 |
+|                  1 |
+|                  2 |
++--------------------+
+3 rows in set (0.00 sec)
+**********************************************
+	a.mysql> select * from employe_info where designation='software developer'  group by deptId;
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+| 110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+3 rows in set (0.00 sec)
+***************************************************************************************
+15 WAQTD no of employes haired on each date
+	a.mysql> select count(*) from employe_info group by doj;
++----------+
+| count(*) |
++----------+
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
+|        5 |
+|        4 |
+|        1 |
+|        1 |
+|        1 |
++----------+
+11 rows in set (0.00 sec)
+******************************************************************************************
+16.WAQTD  min salary ineach designation 
+	a.mysql> select min(salary) from employe_info group by designation;
++-------------+
+| min(salary) |
++-------------+
+|       12345 |
+|    54500.34 |
+|    25500.34 |
+|    24400.34 |
+|    24000.34 |
+|    24500.34 |
+|    25000.34 |
+|    26500.34 |
++-------------+
+8 rows in set (0.00 sec)
+**********************************************************************************************************************************************
+					             ********HAVING CLAUSE**************
+17. WAQTD deptId which has atleast 4 working employes
+	a.mysql> select deptId from employe_info group by deptId having count(*)>=4;
++--------+
+| deptId |
++--------+
+|     10 |
+|     30 |
+|     40 |
++--------+
+3 rows in set (0.03 sec)
+************************************************************************************************************************************
+18.WAQTD deptId which has total salary greatethan 20000;
+	a.mysql> select sum(salary) from employe_info group by deptId having sum(salary)>=20000;
++--------------------+
+| sum(salary)        |
++--------------------+
+|           130001.7 |
+|  96001.01999999999 |
+|           25500.34 |
+| 111901.35999999999 |
+|          172001.36 |
++--------------------+
+5 rows in set (0.00 sec)
+****************************************************************************************************************************************
+19.WAQTD deptId and avg salary of all the depts whose avg salary is greater than 20000 excluidng the employes whose name begin with s
+	a.mysql> select deptId,avg(salary) from employe_info where name not like ('s%') group by deptId having avg(salary)>20000;
++--------+--------------------+
+| deptId | avg(salary)        |
++--------+--------------------+
+|     10 |           26000.34 |
+|     20 |           36000.34 |
+|     21 |           25500.34 |
+|     30 | 27975.339999999997 |
++--------+--------------------+
+4 rows in set (0.05 sec)
+*******************************************************************************************************************************
+						**********ORDER BY**********************
+
+20.WAQTD all the employe salary should be arrange in descending order
+	a.mysql> SELECT * FROM EMPLOYE_INFO order by salary desc;
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id     | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+|    117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
+|    114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+|    113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+|    112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+|    106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+|    108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+|    110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+|    111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+|    115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+|    105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+|    107 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+|    116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
+|    101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+|    104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+|    109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+|    103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+|    102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 201116 | bhanu         | bhanu@gmail.com       | NULL               |     NULL | NULL | 1998-08-15 | 2019-09-21 |    12345 |   NULL | NULL       |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+18 rows in set (0.00 sec)
+*************************************************************************************************************************************************
+21.WAQTD employe name his designation date of joining for all employes who are working in either one of the depts 10 20 60 70 and the records in
+ descending order of their salary
+	a.mysql> select name,designation,doj from employe_info where deptId in(10,20,60,70) order by salary desc;
++---------------+--------------------+------------+
+| name          | designation        | doj        |
++---------------+--------------------+------------+
+| anil          | cleark             | 2014-11-23 |
+| rambupal      | tester             | 2018-11-23 |
+| dheeraj       | tester             | 2018-11-23 |
+| yashwanth     | analyst            | 2018-11-23 |
+| bhavana       | analyst            | 2019-11-23 |
+| akhil         | analyst            | 2019-01-23 |
+| bhanu prakash | software developer | 2019-10-23 |
+| sucharitha    | HR                 | 2018-10-23 |
++---------------+--------------------+------------+
+8 rows in set (0.00 sec)
+***************************************************************************************************************************************
+22.WAQTD deptid along with no of employes in it
+	a.
+mysql> select deptId,count(*) from employe_info group by deptId;
++--------+----------+
+| deptId | count(*) |
++--------+----------+
+|   NULL |        1 |
+|     10 |        5 |
+|     20 |        3 |
+|     21 |        1 |
+|     30 |        4 |
+|     40 |        4 |
++--------+----------+
+6 rows in set (0.00 sec)
+*************************************************************************************************************************************
+23.WAQTD all the deatil of employe whose designation is tester and software developer
+	a.SELECT * from employe_info where designation in('tester','software developer')
+***********************************************************************************************************************************
+24.WAQTD name of the employe who is working for research dept
+	a.SELECT * from employe_info where deptId = (SELECT deptId from department where dname='research')
+***********************************************************************************************************************************
+25.WAQTD name of employe who is working in location which has atleast 1 'a' charactor in its name
+	a.select name from employe_info where deptId in(SELECT deptId from department where location like('%a%'))
+************************************************************************************************************************************
+26.WAQT obtain second maximum salary from the employe_info table
+	a.select max(salary) from employe_info where salary < (SELECT max(salary) from employe_info)
+**********************************************************************************************************************************
+27.WAQTD third maximum salary 
+a.select max(salary) from employe_info where salary < (select max(salary) from employe_info where salary < (SELECT max(salary) from employe_info))
+**********************************************************************************************************************************************
+					*************************join*******************************
+28.WAQTD all the record using cross join
+	a.
+
+***********************************************************************************************************************************************
+						*************assignment 2****************
+***********************************************************************************************************************************************
+1.WAQTD all the details of the software developer and deptId = 30
+	a.mysql> select * from employe_info where designation = 'software developer' and deptId = 30;
++-----+------+----------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name | emailId        | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------+----------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 115 | giri | giri@gmail.com | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
++-----+------+----------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+1 row in set (0.44 sec)
+*******************************************************************************************************************************************
+2.WAQTD list all for all the software developer in dept number 40 and having asalary greater than 500.
+	a.mysql> select *  from employe_info where designation = 'software developer' and deptId = 40 and salary>5000;
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name      | emailId             | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 110 | sreekanth | sreekanth@gmail.com | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 117 | sreedhar  | sreedhar@gmail.com  | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+2 rows in set (0.00 sec)
+********************************************************************************************************************************************
+3.WAQTD list all the employee except those who are working in dept 10 & 20.
+	amysql> select *  from employe_info where deptId not in(10,20);
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name      | emailId             | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 103 | revanth   | revanth@gmail.com   | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+| 104 | sravya    | sravya@gmail.com    | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+| 107 | akhil     | akhil@gmail.com     | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+| 109 | murali    | murali@gmail.com    | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+| 110 | sreekanth | sreekanth@gmail.com | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 112 | karthick  | karthick@gmail.com  | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+| 114 | sreedhar  | sreedhar@gmail.com  |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+| 115 | giri      | giri@gmail.com      | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+| 117 | sreedhar  | sreedhar@gmail.com  | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+-----------+---------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+9 rows in set (0.00 sec)
+*******************************************************************************************************************************************
+4.WAQTD list the employee who are not working as software developer and cleark in dept 10 and 20 with salary in the range of 1000 and 3000.
+	a.mysql> select * from employe_info where designation in('software developer','cleark') and salary not between 1000 and 3000;
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+| 110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+| 113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+| 117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+6 rows in set (0.02 sec)
+**********************************************************************************************************************************************
+5.WAQTD list of employes whose salary not in the range of 10000 1nd 20000 in deptId 10,20,30 except salesman.
+	a,mysql> select * from employe_info where salary not between 10000 and 20000 and deptId in(10,20,30) and designation <>'salesman';
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+| 102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+| 105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+| 106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+| 108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+| 111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+| 113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+| 116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+10 rows in set (0.00 sec)
+*******************************************************************************************************************************************
+6.WAQ to arrange all the employes by their salary  descending order
+	a.mysql> select * from employe_info order by salary desc;
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| id     | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+|    117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
+|    114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+|    113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+|    112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+|    106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+|    108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+|    110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+|    111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+|    115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+|    105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+|    107 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+|    116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
+|    101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+|    104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+|    109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+|    103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+|    102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 201116 | bhanu         | bhanu@gmail.com       | NULL               |     NULL | NULL | 1998-08-15 | 2019-09-21 |    12345 |   NULL | NULL       |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+18 rows in set (0.01 sec)
+**********************************************************************************************************************************************
+7.WAQTD maximun salary,minimum salary and total salary from employee
+	a.mysql> select max(salary),min(salary),sum(salary) from employe_info;
++-------------+-------------+-------------------+
+| max(salary) | min(salary) | sum(salary)       |
++-------------+-------------+-------------------+
+|    66500.34 |       12345 | 547750.7799999999 |
++-------------+-------------+-------------------+
+1 row in set (0.08 sec)
+*********************************************************************************************************************************************
+8.WAQTD list of the number of software developer in deptId 20.
+	a.mysql> select designation,count(designation) from employe_info where designation='software developer' and deptId=20;
++-------------+--------------------+
+| designation | count(designation) |
++-------------+--------------------+
+| NULL        |                  0 |
++-------------+--------------------+
+1 row in set (0.01 sec)
+*******************************************************************************************************************************************
+9.WAQTD the list of the highest and lowest salary earned by salesman
+	a.mysql> select min(salary),max(salary) from employe_info where  designation ='salesman';
++-------------+-------------+
+| min(salary) | max(salary) |
++-------------+-------------+
+|    24500.34 |    36500.34 |
++-------------+-------------+
+1 row in set (0.00 sec)
+*******************************************************************************************************************************************
+10.WAQTD total salary of all departments
+	a.mysql> select sum(salary),deptId from employe_info group by deptId;
++--------------------+--------+
+| sum(salary)        | deptId |
++--------------------+--------+
+|              12345 |   NULL |
+|           130001.7 |     10 |
+|  96001.01999999999 |     20 |
+|           25500.34 |     21 |
+| 111901.35999999999 |     30 |
+|          172001.36 |     40 |
++--------------------+--------+
+6 rows in set (0.03 sec)
+***********************************************************************************************************************************
+					inner join
+***********************************************************************************************************************************************
+mysql> SELECT * from employe_info e inner JOIN department d on e.deptId = d.deptId;
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+--------+------------+-----------+
+| id  | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup | deptId | dname      | location  |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+--------+------------+-----------+
+| 101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |     10 | accounting | bangalore |
+| 102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |     20 | research   | pune      |
+| 103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |     30 | sales      | newdelhi  |
+| 104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |     40 | oparation  | chenni    |
+| 105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |     10 | accounting | bangalore |
+| 106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |     10 | accounting | bangalore |
+| 108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |     10 | accounting | bangalore |
+| 109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |     30 | sales      | newdelhi  |
+| 110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |     40 | oparation  | chenni    |
+| 111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |     10 | accounting | bangalore |
+| 112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |     30 | sales      | newdelhi  |
+| 113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |     20 | research   | pune      |
+| 114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |     40 | oparation  | chenni    |
+| 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |     30 | sales      | newdelhi  |
+| 116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |     20 | research   | pune      |
+| 117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |     40 | oparation  | chenni    |
++-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+--------+------------+-----------+
+
+
+					outer join
+**************************************************************************************************************************************
+
+1=> left outer join
+
+mysql> SELECT * from employe_info e left outer JOIN department d on e.deptId = d.deptId;
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+--------+------------+-----------+
+| id     | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup | deptId | dname      | location  |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+--------+------------+-----------+
+|    101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |     10 | accounting | bangalore |
+|    102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |     20 | research   | pune      |
+|    103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |     30 | sales      | newdelhi  |
+|    104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |     40 | oparation  | chenni    |
+|    105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |     10 | accounting | bangalore |
+|    106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |     10 | accounting | bangalore |
+|    107 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |   NULL | NULL       | NULL      |
+|    108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |     10 | accounting | bangalore |
+|    109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |     30 | sales      | newdelhi  |
+|    110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |     40 | oparation  | chenni    |
+|    111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |     10 | accounting | bangalore |
+|    112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |     30 | sales      | newdelhi  |
+|    113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |     20 | research   | pune      |
+|    114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |     40 | oparation  | chenni    |
+|    115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |     30 | sales      | newdelhi  |
+|    116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |     20 | research   | pune      |
+|    117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |     40 | oparation  | chenni    |
+| 201116 | bhanu         | bhanu@gmail.com       | NULL               |     NULL | NULL | 1998-08-15 | 2019-09-21 |    12345 |   NULL | NULL       |   NULL | NULL       | NULL      |
++--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+--------+------------+-----------+
+
+************************************************************************************************************************************************************************************1
+2=>right outer join
+
+mysql> SELECT * from  department e  right outer JOIN employe_info d on e.deptId = d.deptId;
++--------+------------+-----------+--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+| deptId | dname      | location  | id     | name          | emailId               | designation        | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++--------+------------+-----------+--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+|     10 | accounting | bangalore |    101 | bhanu prakash | ybnuprksrdy@gmail.com | software developer |   767598 |   21 | 1998-08-08 | 2019-10-23 | 25000.34 |     10 | AB+ve      |
+|     20 | research   | pune      |    102 | sucharitha    | shucharitha@gmail.com | HR                 |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+|     30 | sales      | newdelhi  |    103 | revanth       | revanth@gmail.com     | cleark             |   737498 |   21 | 1998-07-28 | 2018-09-23 | 24400.34 |     30 | B+ve       |
+|     40 | oparation  | chenni    |    104 | sravya        | sravya@gmail.com      | salesMan           |   737499 |   20 | 1999-07-28 | 2018-11-23 | 24500.34 |     40 | B-ve       |
+|     10 | accounting | bangalore |    105 | bhavana       | bhavana@gmail.com     | analyst            |   637499 |   21 | 1998-06-28 | 2019-11-23 | 25500.34 |     10 | o+ve       |
+|     10 | accounting | bangalore |    106 | rambupal      | rambupal@gmail.com    | tester             |   654499 |   21 | 1998-05-28 | 2018-11-23 | 26500.34 |     10 | o-ve       |
+|   NULL | NULL       | NULL      |    107 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     21 | o+ve       |
+|     10 | accounting | bangalore |    108 | dheeraj       | dheeraj@gmail.com     | tester             |  9642298 |   22 | 1997-05-28 | 2018-11-23 | 26500.34 |     10 | b-ve       |
+|     30 | sales      | newdelhi  |    109 | murali        | murali@gmail.com      | salesMan           |   737123 |   21 | 1997-07-28 | 2017-11-23 | 24500.34 |     30 | B-ve       |
+|     40 | oparation  | chenni    |    110 | sreekanth     | sreekanth@gmail.com   | software developer |  9232298 |   22 | 1997-05-28 | 2019-01-23 | 26500.34 |     40 | AB-ve      |
+|     10 | accounting | bangalore |    111 | yashwanth     | yashwanth@gmail.com   | analyst            |   964244 |   22 | 1997-11-28 | 2018-11-23 | 26500.34 |     10 | ab-ve      |
+|     30 | sales      | newdelhi  |    112 | karthick      | karthick@gmail.com    | salesman           |   987654 |   27 | 1992-05-28 | 2015-11-23 | 36500.34 |     30 | ab-ve      |
+|     20 | research   | pune      |    113 | anil          | anil@gmail.com        | cleark             |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+|     40 | oparation  | chenni    |    114 | sreedhar      | sreedhar@gmail.com    |                    |  9642298 |   27 | 1992-05-28 | 2013-11-23 | 54500.34 |     40 | b-ve       |
+|     30 | sales      | newdelhi  |    115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
+|     20 | research   | pune      |    116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
+|     40 | oparation  | chenni    |    117 | sreedhar      | sreedhar@gmail.com    | software developer |  9232298 |   25 | 1992-05-28 | 2019-01-23 | 66500.34 |     40 | AB-ve      |
+|   NULL | NULL       | NULL      | 201116 | bhanu         | bhanu@gmail.com       | NULL               |     NULL | NULL | 1998-08-15 | 2019-09-21 |    12345 |   NULL | NULL       |
++--------+------------+-----------+--------+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
+*************************************************************************************************************************************************************************************
+
+===mysql>  select * from department;
++--------+-------------+-----------+
+| deptId | dname       | location  |
++--------+-------------+-----------+
+|     10 | accounting  | bangalore |
+|     12 | student     | banglore  |
+|     20 | research    | pune      |
+|     30 | sales       | newdelhi  |
+|     40 | oparation   | chenni    |
+|     50 | admin       | mumbai    |
+|     60 | maintenance | goa       |
++--------+-------------+-----------+
+7 rows in set (0.00 sec)
+************************************************************************************************************
+==mysql> set autocommit = 0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into department values(122,'s2345tudent','ban234glore');
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  select * from department;
++--------+-------------+-------------+
+| deptId | dname       | location    |
++--------+-------------+-------------+
+|     10 | accounting  | bangalore   |
+|     12 | student     | banglore    |
+|     20 | research    | pune        |
+|     30 | sales       | newdelhi    |
+|     40 | oparation   | chenni      |
+|     50 | admin       | mumbai      |
+|     60 | maintenance | goa         |
+|    122 | s2345tudent | ban234glore |
++--------+-------------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql>  select * from department;
++--------+-------------+-----------+
+| deptId | dname       | location  |
++--------+-------------+-----------+
+|     10 | accounting  | bangalore |
+|     12 | student     | banglore  |
+|     20 | research    | pune      |
+|     30 | sales       | newdelhi  |
+|     40 | oparation   | chenni    |
+|     50 | admin       | mumbai    |
+|     60 | maintenance | goa       |
++--------+-------------+-----------+
+7 rows in set (0.00 sec)
+
+*****************************************************************************************************************************
+=====mysql> insert into department values(22,'employe','madanapalli');
+Query OK, 1 row affected (0.05 sec)
+
+mysql>  select * from department;
++--------+-------------+-------------+
+| deptId | dname       | location    |
++--------+-------------+-------------+
+|     10 | accounting  | bangalore   |
+|     12 | student     | banglore    |
+|     20 | research    | pune        |
+|     22 | employe     | madanapalli |
+|     30 | sales       | newdelhi    |
+|     40 | oparation   | chenni      |
+|     50 | admin       | mumbai      |
+|     60 | maintenance | goa         |
++--------+-------------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql>  select * from department;
++--------+-------------+-------------+
+| deptId | dname       | location    |
++--------+-------------+-------------+
+|     10 | accounting  | bangalore   |
+|     12 | student     | banglore    |
+|     20 | research    | pune        |
+|     22 | employe     | madanapalli |
+|     30 | sales       | newdelhi    |
+|     40 | oparation   | chenni      |
+|     50 | admin       | mumbai      |
+|     60 | maintenance | goa         |
++--------+-------------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>  select * from department;
++--------+-------------+-------------+
+| deptId | dname       | location    |
++--------+-------------+-------------+
+|     10 | accounting  | bangalore   |
+|     12 | student     | banglore    |
+|     20 | research    | pune        |
+|     22 | employe     | madanapalli |
+|     30 | sales       | newdelhi    |
+|     40 | oparation   | chenni      |
+|     50 | admin       | mumbai      |
+|     60 | maintenance | goa         |
++--------+-------------+-------------+
+8 rows in set (0.00 sec)
+**************************************************************************************************
+
+mysql> insert into department values(32,'trainner','punganer');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> savepoint d;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from department where deptId = 32;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> rollback to d;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from department;
++--------+-------------+-------------+
+| deptId | dname       | location    |
++--------+-------------+-------------+
+|     10 | accounting  | bangalore   |
+|     12 | student     | banglore    |
+|     20 | research    | pune        |
+|     22 | employe     | madanapalli |
+|     30 | sales       | newdelhi    |
+|     32 | trainner    | punganer    |
+|     40 | oparation   | chenni      |
+|     50 | admin       | mumbai      |
+|     60 | maintenance | goa         |
++--------+-------------+-------------+
+9 rows in set (0.00 sec)
+*********************************************************************************************
+synatx for Stored procedure
+******************************************************************************************
+
+DELIMITER $$
+
+CREATE
+    /*[DEFINER = { user | CURRENT_USER }]*/
+    PROCEDURE `ustglobal`.`storedprocedure`()
+    /*LANGUAGE SQL
+    | [NOT] DETERMINISTIC
+    | { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA }
+    | SQL SECURITY { DEFINER | INVOKER }
+    | COMMENT 'string'*/
+    BEGIN
+	SELECT * from employe_info where deptId = 20;
+    END$$
+
+DELIMITER ;
+
+
+
+mysql> call storedprocedure;
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| id  | name       | emailId               | designation | mobileNo | age  | dob        | doj        | salary   | deptId | bloodGroup |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+| 102 | sucharitha | shucharitha@gmail.com | HR          |   767498 |   21 | 1998-07-08 | 2018-10-23 | 24000.34 |     20 | B+ve       |
+| 113 | anil       | anil@gmail.com        | cleark      |   123456 |   28 | 1991-05-28 | 2014-11-23 | 46500.34 |     20 | b-ve       |
+| 116 | akhil      | akhil@gmail.com       | analyst     |   123456 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
++-----+------------+-----------------------+-------------+----------+------+------------+------------+----------+--------+------------+
+3 rows in set (0.01 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
