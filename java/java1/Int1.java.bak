@@ -1,0 +1,11 @@
+public class Int1 
+{
+	public static void main(String[] args) 
+	{
+		short b = -2147483648 ;//we can not store value lessthen -2,147,483,648
+		System.out.println(b);
+		short b1 = 2147483647;//we can not store value greaterthan 2,147,483,647
+		System.out.println(b1);
+
+	}
+}

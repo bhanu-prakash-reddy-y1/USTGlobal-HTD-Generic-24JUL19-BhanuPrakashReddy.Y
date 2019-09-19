@@ -1,0 +1,10 @@
+public class Float1  
+{
+	public static void main(String[] args) 
+	{
+		float f = 1.123456789f;
+		System.out.println(f);
+		double d = 1.12345678123123129d;
+		System.out.println(d);
+	}
+}

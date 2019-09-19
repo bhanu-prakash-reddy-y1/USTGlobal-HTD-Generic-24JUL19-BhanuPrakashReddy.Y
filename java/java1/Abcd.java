@@ -1,0 +1,21 @@
+class Abcd 
+{
+	public static void main(String[] args) 
+	{
+		int w = 0;
+		for (int i = 1;i<=3 ;i++ )
+		{
+			for (int j = 1;j<=i ;j++ )
+			{
+				System.out.print((char)(65+w)+""+(char)(97+w));
+				if (i>=j)
+				{
+					w=w+1;
+				}else{
+				w=w+2-j;
+				}
+			}
+			System.out.println();
+		}
+	}
+}
