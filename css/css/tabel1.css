@@ -1,0 +1,9 @@
+body{
+    width: 100%;
+}
+table, th, td{
+    margin: 20% 35%;
+    border-style: solid;
+    border-collapse: collapse; 
+    background-color: saddlebrown;
+}

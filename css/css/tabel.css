@@ -1,0 +1,31 @@
+body{
+    background-image: url('/images/2017-03-20-09-35-17-973.jpg');
+    background-size: cover;
+}
+table, th, td{
+    border-style: solid;
+    text-align: center;
+    padding: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-style: oblique;
+    font-size: 25px;
+}
+table{
+    background-color: black;
+    width: 100%;
+}
+th{
+    background-color: aquamarine;
+    color: black;
+}
+tr:nth-child(even){
+    background-color: rgb(147, 165, 42);
+}
+tr:nth-child(odd){
+    background-color: rgb(30, 210, 120);
+}
+td:hover,th:hover{
+ background-color: rgb(42, 110, 165);
+ color: antiquewhite;
+}

@@ -1,0 +1,48 @@
+body{
+    background-color: rgb(148, 148, 146);
+}
+#star{
+    color: red;
+}
+#mover{
+   margin-left: 40px;
+   border-radius: 5px;
+}
+#mover1{
+    margin-left: 110px;
+    width: 500px;
+    border-radius: 5px;
+ }
+#move{
+    margin-left: 125px;
+}
+#address{
+    width: 500px;
+    border-radius: 5px;
+}
+#city{
+    margin-left: 110px;
+    border-radius: 6px;
+}
+#city1{
+    margin-left: 260px;
+}
+#postal{
+    margin-left: 110px;
+    border-radius: 6px;
+}
+#select{
+    width: 150px;
+    margin-left: 100px;
+}
+#city2{
+    margin-left: 180px;
+    border-radius: 6px;
+}
+#select{
+    border-radius: 6px; 
+}
+#email{
+    width: 500px;
+    border-radius: 6px;
+}

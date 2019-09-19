@@ -1,0 +1,28 @@
+body{
+    background-image: url('/images/WhatsApp\ Video\ 2019-07-27\ at\ 12.29.15\ PM.mp4');
+}
+table,th,td{
+    text-align: center;
+    padding: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-style: oblique;
+    font-size: 25px;
+}
+table{
+    width: 100%;
+}
+th{
+    background-color: aquamarine;
+    color: black;
+}
+tr:nth-child(even){
+    background-color: rgb(147, 165, 42);
+}
+tr:nth-child(odd){
+    background-color: rgb(30, 210, 120);
+}
+td:hover,th:hover{
+ background-color: rgb(42, 110, 165);
+ color: antiquewhite;
+}

@@ -1,0 +1,22 @@
+.img-div{
+    float: left;
+    border: 1px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+    margin-left: 10px;
+}
+img{
+    width: 200px;
+    height: 250px;
+    transition: all 3s;/*to set time for zooming*/ 
+}
+img:hover{
+    transform: scale(1.2,1.2);/*zooming effect*/
+    cursor: pointer;
+}
+.desc{
+    margin-top: 20px;/*to set margin to text*/
+    font-family: cursive;
+    color: rgb(236, 129, 41);
+}

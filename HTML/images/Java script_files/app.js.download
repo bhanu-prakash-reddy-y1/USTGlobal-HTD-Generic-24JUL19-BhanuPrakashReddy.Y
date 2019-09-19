@@ -1,0 +1,26 @@
+var todaysDate=new Date();
+var day=todaysDate.getMonth()
+var months=['jan','feb','mar','april','may','june','july','aug','sep','oct','nov','dec'];
+var days=['sat','mon','thes','wed','thur','fri','sat']
+console.log("month ="+months[todaysDate.getMonth()])
+console.log("day ="+days[day])
+var date=new Date(2019,7,26,34,33,30,0);
+console.log(date)
+var date1=new Date(0);
+console.log(date1)
+var date2=new Date("october 10,2018 11,13:1:00");
+console.log(date2)
+console.log(Math.PI);
+console.log(Math.floor(4.6))
+console.log(Math.ceil(4.5))
+console.log(Math.round(4.2))
+console.log(Math.round(4.6))
+console.log(Math.floor(Math.random()*100));
+console.log(Math.round(Math.random()*100));
+var numberValue=10;
+var numberValue1='10';
+if(numberValue==numberValue1){
+    console.log('E      qual');
+}else{
+    console.log('not equal');
+}
