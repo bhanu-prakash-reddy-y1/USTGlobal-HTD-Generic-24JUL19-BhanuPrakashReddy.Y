@@ -1,0 +1,18 @@
+package com.dev.recurrssion;
+
+public class H {
+	
+	public static void main(String[] args) {
+		num();
+	}
+	static int i = 1;
+	public static void num() {
+		i++;
+		System.out.println(i);
+		if(i>=11) return;
+		num();
+		
+		
+	}
+
+}

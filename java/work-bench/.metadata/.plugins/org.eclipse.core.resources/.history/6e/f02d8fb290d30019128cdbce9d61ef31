@@ -1,0 +1,12 @@
+package com.dev.lambdaexpression;
+
+public class test {
+
+	public static void main(String[] args) {
+		FunInt f = () -> System.out.println(" Fun Int");
+		
+		f.printVAl();
+
+	}
+
+}

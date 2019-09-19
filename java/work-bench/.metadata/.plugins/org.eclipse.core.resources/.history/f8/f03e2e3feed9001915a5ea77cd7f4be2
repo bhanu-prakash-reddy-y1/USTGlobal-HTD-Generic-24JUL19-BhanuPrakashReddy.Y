@@ -1,0 +1,15 @@
+package com.dev.recurrssion;
+
+public class H {
+	
+	public static void main(String[] args) {
+		num();
+	}
+	static int i = 1;
+	public static void num(int i) {
+		System.out.println(i);
+		if(i>10) return;
+		num(i++);
+	}
+
+}
