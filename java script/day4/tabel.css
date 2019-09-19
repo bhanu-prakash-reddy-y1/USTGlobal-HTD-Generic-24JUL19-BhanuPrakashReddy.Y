@@ -1,0 +1,10 @@
+td{
+    border: solid;
+    border-radius: 5px;
+    border-collapse: collapse;
+    background-color: aqua;
+}
+td:hover{
+    background-color: rgb(255, 251, 0);
+    cursor: pointer;
+}

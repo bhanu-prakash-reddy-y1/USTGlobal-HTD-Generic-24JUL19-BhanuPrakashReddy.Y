@@ -1,0 +1,67 @@
+body{
+    background-color: rgb(240, 244, 247);
+}
+.navbar.navbar-expand-lg.navbar-light.bg-light{
+    height: 70px;
+}
+#similarimg{
+    margin-left: 5%;
+}
+.getstarted{
+    color: aliceblue;
+    background-color: rgb(27, 169, 212);
+    padding: 7px;
+    border-radius: 30px;
+}
+.collapse.navbar-collapse{
+    color: black;
+   
+    margin-left: 20%;
+}
+.jumbotron{
+ background-color: rgb(248, 246, 244);
+}
+.top{
+    height: 90%;
+    font-size: 350%;
+    color: rgb(54, 56, 85);
+}
+.topd{
+    font-size: 130%;
+    color: rgb(54, 56, 85);
+}
+.topc{
+    font-size: 100%;
+    color: rgb(54, 56, 85);
+
+}
+.btn-group{
+    padding-top: 20px;
+    width: 100%;
+}
+.btn.btn-light.dropdown-toggle{
+    font-size: 120%;
+}
+.go{
+    margin-top: 23%;
+    background-color: rgb(240, 166, 30);
+    width: 25%;
+    color: rgb(255, 255, 255)
+}
+.background{
+    background-image: url(/images/jabotrom\ background.png)
+}
+.color{
+    color: rgb(54, 56, 85);
+}
+.table.table-baoreder.table-dark{
+    width: 100%;
+
+}
+.color1{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+       color:white;
+}
+.container.table.table-baorderd{
+    text-align: center;
+}

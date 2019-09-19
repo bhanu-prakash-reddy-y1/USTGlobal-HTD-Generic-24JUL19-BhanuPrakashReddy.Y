@@ -1,0 +1,18 @@
+.add{
+    color: brown;
+    background: white;
+}
+.add1{
+    font-size: 40px;
+}
+table, td, tr{
+    border-style: solid;
+    border-collapse: collapse;
+}
+.blue{
+    color: red;
+    background: black;
+}
+.fonts{
+    font-size: 50px;
+}

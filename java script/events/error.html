@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>error page</title>
+    <link rel="stylesheet" href="/events/error.css">
+</head>
+<body>
+    <legend>
+        <fieldset>
+            <form action="">
+                <div>
+                    <label for="username">User Name</label>
+                </div>
+                <div>
+                    <input onkeyup="error()" type="text" name="uname" id="uname">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                </div>
+                <div>
+                    <input onkeyup="error()" type="password" name="password" id="pswrd">
+                </div>
+                <br>
+                <div>
+                    <input type="submit" value="submit" name="submitt" disabled>
+                </div>
+            </form>
+        </fieldset>
+    </legend>
+    <script src="/events/error.js"></script>
+</body>
+</html>

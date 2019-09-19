@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java script</title>
+    <script>
+      var myAge=21;
+        console.log("my age is "+myAge);
+        var myName='bhanu prakash reddy';
+        console.log("my name is "+myName);
+        var hasHobbies=true;
+        console.log("has hobbies ="+hasHobbies);
+        var fruits=null;
+        console.log("fruits are "+fruits);
+        var myHobbies;
+        console.log("my hobbies are "+myHobbies)
+    </script>
+</head>
+<body>
+    <script>
+       var person={
+            firstName:'bhanu',
+            lastName:'prakashreddyy',
+            age:21,
+            height:66,
+            color:'black',
+            getFullName: function(){
+                return this.firstName+" "+this.lastName;
+                                 }
+        }
+        console.log(person);
+        console.log(person.firstName);
+        console.log(person.getFullName());
+        var fruits=['Apple','banana','orange','mango']
+        var bhanu=['prakash',21,59,'betch']
+        for(var i=0;i<fruits.length;i++)
+        {
+            console.log(fruits[i])
+        }
+        for(var i=0;i<bhanu.length;i++)
+        {
+            console.log(bhanu[i])
+        }
+    </script>
+    <script src="/app.js"></script>
+</body>
+</html>

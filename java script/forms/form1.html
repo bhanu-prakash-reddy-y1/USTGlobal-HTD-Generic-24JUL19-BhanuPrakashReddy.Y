@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>formvalidation</title>
+    <style>
+       body{
+        margin-left: 25%;
+        margin-right: 50%
+       }
+    </style>
+</head>
+<body>
+    <legend>
+        <fieldset>
+            <form name="employeeForm" onsubmit="return validate()" action="">
+              <div>
+                <input type="password" name="pass" id="" placeholder="enter password" required>
+              </div>
+              <div>
+                <label id="reenter" for="text"></label>
+              </div>
+              <div>
+                <label for="reenter">reenter password</label>
+              </div><br>
+              <div>
+                <input type="password" name="cpass" id="bp" placeholder="re enter password" required> 
+              </div>
+              <br>
+              <div>
+                  <input type="submit" value="submit">
+              </div>
+            </form>
+        </fieldset>
+    </legend>
+   hello| <span style="display: none">data</span>|welcome
+    <script src="/forms/form1.js"></script>
+</body>
+</html>

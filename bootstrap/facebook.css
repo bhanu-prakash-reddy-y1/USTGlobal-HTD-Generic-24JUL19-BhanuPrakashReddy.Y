@@ -1,0 +1,44 @@
+body{
+    background-color: rgb(219, 213, 213)
+}
+.card {
+    margin-top: 100px;
+}
+.form-group{
+
+    text-align: center;
+}
+.navbar-brand{
+    margin-left: 150px;
+}
+.form-control{
+    width: 75%;
+    margin-left: 15%;
+}
+#center{
+    padding: 18px;
+}
+.form-control{
+    width: 75%;
+    margin-left: 15%;
+}
+.btn-primary{
+    width: 75%;
+    margin-left: 15%;
+}
+#submit{
+    padding: 4px;
+    width: 7%;
+    margin-right: 15%;
+    border: 10px;
+    border-radius: 2px;
+    background-color: rgb(8, 199, 24)
+
+}
+#exampleInputEmail1{
+    width: 50%;
+}
+/* #email{
+    width:80%;
+    margin-right: 10px;
+} */
