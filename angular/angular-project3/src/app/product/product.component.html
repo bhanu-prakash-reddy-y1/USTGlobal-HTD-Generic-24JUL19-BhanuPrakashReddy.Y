@@ -1,0 +1,14 @@
+<form #productFrom = 'ngForm' (ngSubmit)="sendProduct(productFrom)" class="card card-body col-md-4 offset-md-4 mt-5">
+    <h3 class="text-center bg-dark text-white">Add product!!!!</h3>
+    <label for="">Product Name</label>
+    <input type="text" name = 'name' #name = 'ngModel' ngModel class="form-control" placeholder="Enter Product Name.....!">
+    <label for="">Product Price</label>
+    <input type="number" name = 'price' #price = 'ngModel' ngModel class="form-control" placeholder="Enter Price.......!">
+    <label for="">About Product</label>
+    <input type="text" name = 'product' #product = 'ngModel' ngModel class="form-control" placeholder="Enter Product Details.....!">
+    <label for="">About Image</label>
+    <input type="text" name = 'image' #image = 'ngModel' ngModel class="form-control" placeholder="Enter Image Url.....!">
+    <label for="">Detils</label>    
+    <textarea class="from-control mt2" name="discription" id="" cols="30" rows="5"></textarea>
+    <button type="submit" class="float-right mt-4 bg-warning">Submit</button>
+</form>

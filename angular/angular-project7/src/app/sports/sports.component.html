@@ -1,0 +1,10 @@
+<div class="body">
+        <div class="col-md-3 offset-1 float-left card card-body mb-4" 
+        *ngFor = 'let b of sportsNews'>
+            <div class="container">
+                <a class="img-thumbnail card card-body" href="{{b.url}}"><img class="card" src="{{b.urlToImage}}" alt=""></a>
+                <h4 class="text">{{b.title}}</h4>
+                <a class="btn btn-primary" href="{{b.url}}">For more Details .....!</a>
+            </div>
+         </div>
+</div>

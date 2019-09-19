@@ -1,0 +1,5 @@
+<p class="bg-dark text-white text-center">parant component</p>
+<h1>{{dataFromChild}}</h1>
+<input type="text" class="from-control mt-2 mb-2"[(ngModel)] = 'inputData'>
+<app-child [dataFromParant] = 'pData'></app-child>
+<app-child [dataFromParant] = 'pData1'></app-child>

@@ -1,0 +1,31 @@
+<body class="bg">
+    <table class="table-bordered table-hover mt-3">
+        <thead class="bg-warning bg-hover">
+            <tr>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Year of Release</th>
+                <th>Cost</th>
+                <th>No Of Units Sold</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor='let c of car'>
+                    <td>{{c.brand}}</td>
+                    <td>{{c.model}}</td>
+                    <td>{{c.year}}</td>
+                    <td>{{c.cost}}</td>
+                    <td>{{c.units}}</td>
+                    <td><button (click)='deleteCar(c)' type="submit" 
+                        class="btn btn-danger float-right">Delete</button>    
+                    </td>
+                    <td><button (click)='updateCar(c)' type="submit" 
+                        class="btn btn-warning float-right">Update</button>    
+                    </td>
+                    
+                </tr>            
+        </tbody>
+    </table>
+</body>

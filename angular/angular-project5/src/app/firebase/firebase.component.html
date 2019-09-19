@@ -1,0 +1,18 @@
+<div  class="card card-body col-md-4 offset-4 mt-4 mb-4">
+        <h4 class="text-center">Add user!!!</h4>
+        <form #userFrom = 'ngForm' (ngSubmit)='postUser(userFrom)'>
+            <input type="hidden" name="ngModel"
+            [(ngModel)]='firebaseService.selectedUser.id'>
+
+            <input type="text" name="name" id="" class="form-control mb-4" 
+            placeholder="enter name..!" #name='ngModel' [(ngModel)]='firebaseService.selectedUser.name'>
+
+            <input type="email" name="email" id="" class="form-control mb-4" 
+            placeholder="enter email..!" #name='ngModel' [(ngModel)]='firebaseService.selectedUser.email'>
+
+            <input type="tel" name="phno" id="" class="form-control mb-4" 
+            placeholder="enter phno..!" #name='ngModel' [(ngModel)]='firebaseService.selectedUser.phno'>
+            
+            <button type="submit" class="btn btn-primary float-left">submit</button>
+        </form>
+       </div>

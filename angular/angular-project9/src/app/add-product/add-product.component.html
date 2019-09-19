@@ -1,0 +1,12 @@
+<div class="card card-body container col-md-6 offset-3 mt-5">
+    <form action="" #form=ngForm (ngSubmit)='sendProduct(form.value)'>
+        <input type="text" name="title" class="form-control mb-5"  #title='ngModel' ngModel 
+        placeholder="Enter Product title......!">
+
+        <input type="text" name="imgurl" class="form-control mb-5"  #title='ngModel' ngModel 
+        placeholder="Enter Product imgUrl......!" >
+
+        <textarea name="description" #description='ngModel' ngModel id="" cols="30" rows="5" class="form-control mb-5" placeholder="Enter Details About Product......!"></textarea>
+        <button type="submit" class="card bg-success" >Add Product</button>
+    </form>
+</div>

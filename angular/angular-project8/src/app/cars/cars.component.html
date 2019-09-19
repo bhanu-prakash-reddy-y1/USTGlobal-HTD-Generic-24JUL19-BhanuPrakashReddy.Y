@@ -1,0 +1,26 @@
+<div class="card card-body col-md-4 offset-md-4 mt-5">
+    <h3 class="text-center">Add Car......!!</h3>
+    <form #carform='ngForm' (ngSubmit)='postCar(carform)'>
+        <input type="hidden" name="id" #id='ngModel' ngModel>
+        <label for="" class="text-primary">Enter car brand</label>
+        <input type="text" name="brand" id="brand" #brand='ngModel'
+        ngModel placeholder="Enter Car brand......." class="form-control mb-3">
+
+        <label for="" class="text-primary">Enter car Model</label>
+        <input type="text" name="model" id="model" #model='ngModel'
+        ngModel placeholder="Enter Car Model......." class="form-control mb-3">
+
+        <label for="" class="text-primary">Year Of Release</label>
+        <input type="text" name="year" id="year" #year='ngModel'
+        ngModel placeholder="Year Of Release......." class="form-control mb-3">
+
+        <label for="" class="text-primary">Cost</label>
+        <input type="text" name="cost" id="cost" #cost='ngModel'
+        ngModel placeholder="Enter Car cost......." class="form-control mb-3">
+        
+        <label for="" class="text-primary">No Of Units Sold</label>
+        <input type="number" name="units" id="units" #units='ngModel'
+        ngModel placeholder="Enter No Units Sold......." class="form-control mb-3">
+        <button type="submit" class="btn btn-primary float-right">Submit</button>   
+    </form>
+</div>

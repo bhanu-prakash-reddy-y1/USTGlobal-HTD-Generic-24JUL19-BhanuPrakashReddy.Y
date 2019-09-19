@@ -1,0 +1,22 @@
+
+<div class="text-center bg-dark">
+    <!-- <h1>Vinayaka chavithi Chanda</h1> -->
+</div>
+<div class="col-md-8 offset-md-2">
+    <table class="table-body table-bordered table-hover">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Name</th>
+                <th>Money</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="karthik" *ngFor='let i of members'>
+                <td><a href="https://www.youtube.com">{{i.name}}</a></td>
+                <td>{{i.money}}</td>
+                <td>{{i.date}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

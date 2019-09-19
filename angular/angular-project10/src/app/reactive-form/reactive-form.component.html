@@ -1,0 +1,47 @@
+<div class="col-md-6 offset-md-3 card card-body mt-5">
+    
+<form action="" [formGroup]='reactiveForm' (ngSubmit)='sendForm(reactiveForm)' >
+    <legend>Form title</legend>
+
+    <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" name="name"class="form-control"
+        formControlName='name' id="" placeholder="Input field">
+    </div>
+    <div *ngIf='name.touched && name.invalid'>
+           <div class="bg-danger" *ngIf = 'name.touched && name.errors.minlength'>hello min 3 words</div>
+           <div class="bg-success" *ngIf = 'name.errors.maxlength'>mximum 10 words</div>
+           <div class="bg-success" *ngIf = 'name.errors.required'>Required</div>
+    </div>
+    <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" name="password"class="form-control"
+            formControlName='password' id="" placeholder="Input field">
+    </div>
+    <div *ngIf='password.touched && password.invalid'>
+        <div class="bg-danger" *ngIf = 'password.touched && password.errors.minlength'>minimum 8 charactors</div>
+        <div class="bg-success" *ngIf = 'password.errors.pattern'>mximum 10 words</div>
+ </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+<div class="col-md-6 offset-md-3">
+<table class="table table-bordered table-hover">
+<thead class="table table-bordered bg-dark text-light" >
+    <tr>
+        <th>Name</th>
+        <th>Password</th>
+    </tr>
+</thead>
+<tbody *ngFor='let i of user'>
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.password}}</td>
+    </tr>
+
+</tbody>
+
+</table>
+
+</div>

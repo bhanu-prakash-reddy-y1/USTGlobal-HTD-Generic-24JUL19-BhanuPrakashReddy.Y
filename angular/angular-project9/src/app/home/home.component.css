@@ -1,0 +1,7 @@
+.card.col-md-2.offset-md-1.mt-3.float-left{
+   height: 30%;
+   background-color: rgb(134, 114, 114);
+}
+.card.card-body{
+    width: 100%;
+}

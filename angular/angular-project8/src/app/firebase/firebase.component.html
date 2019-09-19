@@ -1,0 +1,10 @@
+<div class="body">
+        <div class="col-md-3 float-left mb-4" 
+        *ngFor = 'let b of first'>
+            <div class="container card card-body">
+                <a class="img-thumbnail card card-body" href="{{b.url}}"><img class="img-thumbnail" src="{{b.avatar_url}}" alt=""></a>
+                <h4 class="text">{{b.id}}</h4>
+                <p>{{b.node_id}}</p>
+            </div>
+         </div>
+</div>  

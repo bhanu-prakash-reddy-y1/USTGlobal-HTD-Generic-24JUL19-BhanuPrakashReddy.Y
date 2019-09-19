@@ -1,0 +1,26 @@
+<div class="col-md-12">
+    <table class="table table-bordered">
+        <thead class="table bg-dark text-light">
+            <tr>
+                <th>Name</th>
+                <th>id</th>
+                <th>Image</th>
+                <th>url</th>
+                <th>html_url</th>
+                <th>repoURL</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let u of user'>
+                <td>{{u.login}}</td>
+                <td>{{u.id}}</td>
+                <td class="card card-body image"><img src="{{u.avatar_url}}" alt=""></td>
+                <td>{{u.url}}</td>
+                <td>{{u.url}}</td>
+                <td>{{u.repos_url}}</td>
+                <td><button class="btn btn-outline-primary" (click)='sendKey(u)' type="submit">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,8 @@
+<div class="container">
+        <div class="card card-body col-md-3 float-left" *ngFor = 'let i of firebase.product'>
+                <img [src]="i.image" alt="">
+                <h1>{{i.price}}</h1>
+                <p>{{i.product}}</p>
+                <button (click)='deleteProduct(i)'>delete</button>
+        </div>
+</div>

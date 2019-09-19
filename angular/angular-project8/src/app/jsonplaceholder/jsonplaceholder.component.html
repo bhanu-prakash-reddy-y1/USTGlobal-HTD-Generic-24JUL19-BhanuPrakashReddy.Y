@@ -1,0 +1,16 @@
+<table class="table-bordred table-hover">
+    <thead class="bg-dark text-light">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = 'let js of json'>
+            <td>{{js.id}}</td>
+            <td>{{js.title}}</td>
+            <td>{{js.body}}</td>
+        </tr>
+    </tbody>
+</table>

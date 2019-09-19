@@ -1,0 +1,46 @@
+<div class="col-md-12 container">
+    <div class="card col-md-2 offset-md-1 mt-3 float-right" *ngFor= 'let i of product'>
+        <img class="card card-body mt-2" src="{{i.imgurl}}" alt="animal image">
+        <h5 class="text-center">{{i.title}}</h5>
+        <p>{{i.description}}</p>
+    <!-- // -->
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary mb-1" data-toggle="modal" (click)='sendProduct(i)' data-target="#exampleModal">
+    Edit
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="card card-body container col-md-6 offset-3 mt-5">
+                <form action="" #form=ngForm (ngSubmit)='updateProduct(i.id , form.value)'>
+                    <input type="text" name="title" class="form-control mb-5"  #title='ngModel' [(ngModel)]='products.title'
+                    placeholder="Enter Product title......!">
+            
+                    <input type="text" name="imgurl" class="form-control mb-5"  #title='ngModel' [(ngModel)]='products.imgUrl'
+                    placeholder="Enter Product imgUrl......!" >
+            
+                    <textarea name="description" #description='ngModel' [(ngModel)]='products.description' id="" cols="30" rows="5" class="form-control mb-5" placeholder="Enter Details About Product......!"></textarea>
+                    <button type="submit" class="card bg-success" >Add Product</button>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-outline bg-danger mb-2" (click)='deleteProduct(i.id)'>Delete</button>
+
+    </div> 
+   </div>

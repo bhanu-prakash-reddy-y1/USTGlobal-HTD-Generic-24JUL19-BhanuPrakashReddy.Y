@@ -1,0 +1,26 @@
+        <div class=" mb-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="content" *ngFor = 'let b of sportsNews'>
+                                        <a class="img-thumbnail card card-body" href="{{b.url}}"><img class="card" src="{{b.urlToImage}}" alt=""></a>
+                                        <h4 class="text">{{b.title}}</h4>
+                                        <a class="btn btn-primary" href="{{b.url}}">For more Details .....!</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                            <div class="content1">
+                                 <h1 class="text-center">welcome</h1>  
+                                <img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2015/04/27/11/48/sign-741813__340.jpg" alt="">
+                            </div>
+                     </div>
+                     <div class="col-md-3">
+                            <div class="content" *ngFor = 'let b of entertainmentNews'>
+                                    <a class="img-thumbnail card card-body" href="{{b.url}}"><img class="card" src="{{b.urlToImage}}" alt=""></a>
+                                    <h4 class="text">{{b.title}}</h4>
+                                    <a class="btn btn-primary" href="{{b.url}}">For more Details .....!</a>    
+                            </div>
+                     </div>
+                </div>
+        
+            </div>
+         
