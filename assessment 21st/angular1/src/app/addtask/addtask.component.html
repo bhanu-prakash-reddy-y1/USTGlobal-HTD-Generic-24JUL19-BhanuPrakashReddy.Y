@@ -1,0 +1,11 @@
+<form #form=ngForm (ngSubmit)='sendtask(task)' class="col-md-6 offset-md-3 card card-body" action="" role="form">
+    <legend>Add task....!</legend>
+
+    <div class="form-group">
+        <label for="">label</label>
+        <input type="text" name="task" #task=ngModel ngModel class="form-control" id="" placeholder="Input field">
+    </div>
+    <button type="submit"  class="btn btn-primary">Submit</button>
+</form>
+<!-- <app-view-all-task [taskdetails]='tasks'></app-view-all-task> -->
+

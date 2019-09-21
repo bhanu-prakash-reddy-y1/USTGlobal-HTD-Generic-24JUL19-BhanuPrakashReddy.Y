@@ -1,0 +1,16 @@
+<table class="table bg-dark table-hovered table-bordered">
+    <thead>
+        <tr>
+        <th>Task</th>
+        <th>Update</th>
+        <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let i of tasksdetails'>
+            <td>{{i.task}}</td>
+            <td>update</td>
+            <td>delete</td>
+        </tr>
+    </tbody>
+</table>
