@@ -3,7 +3,7 @@
 2.query for creating database
 	a.mysql> create database ustglobal  // creating database
 	syntax : create database databasename;
-3.query for changeing to database
+3.query for changing to database
 	a.mysql> use ustglobal;
 	syntax : use databasename; 
 4.query to create tables
@@ -872,7 +872,6 @@ ERROR 1305 (42000): FUNCTION ustglobal.initcap does not exist
 18 rows in set (0.00 sec)
 ****************************************************************************************************************************************
 8.WAQTD name of all employes only three charactors
-	a.
 mysql> select substr(name,1,3) name from employe_info;
 +------------------+
 | name             |
@@ -1104,7 +1103,7 @@ mysql> select * from employe_info group by deptId;
 |     30 | 27975.339999999997 |
 +--------+--------------------+
 4 rows in set (0.05 sec)
-*******************************************************************************************************************************
+*****************************************************************************************************************************************************
 						**********ORDER BY**********************
 
 20.WAQTD all the employe salary should be arrange in descending order
@@ -1253,7 +1252,6 @@ a.select max(salary) from employe_info where salary < (select max(salary) from e
 | 115 | giri          | giri@gmail.com        | software developer |   983693 |   23 | 1996-05-28 | 2018-11-23 | 26500.34 |     30 | AB-ve      |
 | 116 | akhil         | akhil@gmail.com       | analyst            |  9642586 |   21 | 1998-12-28 | 2019-01-23 | 25500.34 |     20 | o+ve       |
 +-----+---------------+-----------------------+--------------------+----------+------+------------+------------+----------+--------+------------+
-10 rows in set (0.00 sec)
 *******************************************************************************************************************************************
 6.WAQ to arrange all the employes by their salary  descending order
 	a.mysql> select * from employe_info order by salary desc;

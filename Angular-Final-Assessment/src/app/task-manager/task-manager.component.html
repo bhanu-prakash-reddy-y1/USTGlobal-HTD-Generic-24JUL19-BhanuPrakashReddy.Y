@@ -1,0 +1,31 @@
+
+<div class="col-md-6 offset-md-3 card card-body mt-5 bg-dark text-light">
+    <form action="" method="POST"  #form='ngForm' (ngSubmit)='sendTask(form.value)' role="form">
+        <legend>Form title</legend>
+    
+        <div class="form-group">
+            <label for="">label</label>
+            <input type="text" name="task" #task='ngModel' ngModel class="form-control" id="" placeholder="Input field">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form> 
+</div>
+
+<div class="col-md-6 offset-md-3 card card-body mt-5 bg-dark text-light">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr class="mt-2" *ngFor='let i of tasks'>
+                <td>{{i.task}}</td>
+                <td>
+                    <button type="submit" class="btn btn-primary float-left" (click)='delete(i)'>Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
