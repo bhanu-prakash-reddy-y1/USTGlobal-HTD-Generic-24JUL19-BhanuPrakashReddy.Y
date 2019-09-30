@@ -7,7 +7,6 @@ public class ContactsInfo {
 
 	public static void main(String[] args) {
 		Scanner scn  = new Scanner(System.in);
-		ArrayList<Contacts> arr = new ArrayList<Contacts>();
 		ContactOperations co = new ContactOperations();
 		Contacts bhanu = co.createContact("bhanu", 76750898, "family");
 		Contacts prakash = co.createContact("prakash", 123456789, "friends");
@@ -65,6 +64,7 @@ public class ContactsInfo {
 				String m = scn.next();
 				co.removeContact(co.searchHere(m));
 				co.showContact();
+				System.out.println("Deleted successfully........!");
 			}else if(n == 3) {
 				System.out.println("Enter Object to edit ");
 				Contacts edit = co.searchHere(scn.next());
